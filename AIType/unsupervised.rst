@@ -1,9 +1,8 @@
-.. _cart:
+.. _unsupervised:
 
 .. automodule:: stable_baselines.gail
 
-
-Classification and Regression Tree
+Unsupervised Learning
 ====
 
 The `Generative Adversarial Imitation Learning (GAIL) <https://arxiv.org/abs/1606.03476>`_ uses expert trajectories

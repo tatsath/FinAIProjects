@@ -1,9 +1,7 @@
-.. _knn:
-
-.. automodule:: stable_baselines.ddpg
+.. _NLP:
 
 
-K-Nearest Neighbors
+Natural Language Processing
 ====
 `Deep Deterministic Policy Gradient (DDPG) <https://arxiv.org/abs/1509.02971>`_
 

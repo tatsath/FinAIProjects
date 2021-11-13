@@ -1,8 +1,8 @@
-.. _ann:
+.. _supervised:
 
 .. automodule:: stable_baselines.common.policies
 
-Artificial Neural Network
+Supervised Learning
 ===============
 
 Stable-baselines provides a set of default policies, that can be used with most action spaces.
