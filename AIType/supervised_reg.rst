@@ -1,63 +1,13 @@
-.. _supervised:
+.. _supervised_reg:
 
-.. automodule:: stable_baselines.common.policies
-
-Supervised Learning - Regression
+Supervised - Classification
 ===============
 
-Template for regression and time series based predictive modelling
-including the model development steps.
+Template for Supervised Classification
 
 Content
 ------------------------------------------------
 
--  `1. Problem Statement <#0>`__
--  `2. Getting Started - Load Libraries and Dataset <#1>`__
-
-   -  `2.1. Load Libraries <#1.1>`__
-   -  `2.2. Load Dataset <#1.2>`__
-
--  `3. Exploratory Data Analysis <#2>`__
-
-   -  `3.1 Descriptive Statistics <#2.1>`__
-   -  `3.2. Data Visualisation <#2.2>`__
-
--  `4. Data Preparation <#3>`__
-
-   -  `4.1 Data Cleaning <#3.1>`__
-   -  `4.3.Feature Selection <#3.2>`__
-   -  `4.3.Data Transformation <#3.3>`__
-
-      -  `4.3.1 Rescaling <#3.3.1>`__
-      -  `4.3.2 Standardization <#3.3.2>`__
-      -  `4.3.3 Normalization <#3.3.3>`__
-
--  `5.Evaluate Algorithms and Models <#4>`__
-
-   -  `5.1. Train/Test Split <#4.1>`__
-   -  `5.2. Test Options and Evaluation Metrics <#4.2>`__
-   -  `5.3. Compare Models and Algorithms <#4.3>`__
-
-      -  `5.3.1 Common Regression Models <#4.3.1>`__
-      -  `5.3.2 Ensemble Models <#4.3.2>`__
-      -  `5.3.3 Deep Learning Models <#4.3.3>`__
-
-   -  `5.4. Time Series based Models-ARIMA and LSTM <#4.4>`__
-
-      -  `5.4.1 ARIMA Model <#4.4.1>`__
-      -  `5.4.2 LSTM Model <#4.4.2>`__
-
--  `6. Model Tuning and Grid Search <#5>`__
-
-   -  `6.1 Common Regression, Ensemble and DeepNNRegressor Grid
-      Search <#5.1>`__
-   -  `6.2 ARIMA and LSTM Grid Search <#5.2>`__
-
--  `7. Finalize the Model <#6>`__
-
-   -  `7.1. Results on test dataset <#6.1>`__
-   -  `7.1. Variable Intuition/Feature Selection <#6.2>`__
-   -  `7.3. Save model for later use <#6.3>`__
 
 1. Problem Statement
 ------------------------------------------------

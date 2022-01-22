@@ -23,9 +23,10 @@ Key highlights of Fin AI Projects
    :maxdepth: 1
    :caption: By AI/ML Type
 
-   AIType/supervised
-   AIType/unsupervised
-   AIType/rl
+   AIType/supervised_reg
+   AIType/supervised_class
+   AIType/unsupervised_dim
+   AIType/unsupervised_clu
    AIType/NLP
 
 .. toctree::
