@@ -1,18 +1,15 @@
-## Contributing to Stable-Baselines
+## Contributing to FinAILAb-Datasets
 
-If you are interested in contributing to Stable-Baselines, your contributions will fall
+If you are interested in contributing to FinAILAb-Templates, your contributions will fall
 into two categories:
-1. You want to propose a new Feature and implement it
-    - Create an issue about your intended feature, and we shall discuss the design and
-    implementation. Once we agree that the plan looks good, go ahead and implement it.
-2. You want to implement a feature or bug-fix for an outstanding issue
-    - Look at the outstanding issues here: https://github.com/hill-a/stable-baselines/issues
-    - Look at the roadmap here: https://github.com/hill-a/stable-baselines/projects/1
-    - Pick an issue or feature and comment on the task that you want to work on this feature.
-    - If you need more context on a particular issue, please ask and we shall provide.
+1. You want to propose a new Data source and include it in the documentation
+    - Create an python code about your intended data set and include the details under the "Data sources" and link the items to whichever section is good.
+2. You want to implement a new item:
+    - Look at the roadmap here: https://github.com/tatsath/FinAILabDatasets/projects/2
+    - Pick a to do list or in progress list and comment on the task that you want to work on this feature.
 
-Once you finish implementing a feature or bug-fix, please send a Pull Request to
-https://github.com/hill-a/stable-baselines/
+Once you finish implementing a additional items, please send a Pull Request to
+https://github.com/tatsath/FinAILabDatasets/
 
 
 If you are not familiar with creating a Pull Request, here are some guides:
@@ -20,15 +17,15 @@ If you are not familiar with creating a Pull Request, here are some guides:
 - https://help.github.com/articles/creating-a-pull-request/
 
 
-## Developing Stable-Baselines
+## Developing FinAILAb-Datasets
 
-To develop Stable-Baselines on your machine, here are some tips:
+To develop FinAILAb-Datasets on your machine, here are some tips:
 
-1. Clone a copy of Stable-Baselines from source:
+1. Clone a copy of FinAILAb-Datasets from source:
 
 ```bash
-git clone https://github.com/hill-a/stable-baselines/
-cd stable-baselines
+git clone https://github.com/tatsath/FinAILabDatasets
+cd https://github.com/tatsath/FinAILabDatasets
 ```
 
 2. Install Stable-Baselines in develop mode, with support for building the docs and running tests:
@@ -38,24 +35,6 @@ pip install -e .[docs,tests]
 ```
 
 ## Codestyle
-
-We follow the [PEP8 codestyle](https://www.python.org/dev/peps/pep-0008/). Please order the imports as follows:
-
-1. built-in
-2. packages
-3. current module
-
-with one space between each,  that gives for instance:
-```python
-import os
-import warnings
-
-import numpy as np
-
-from stable_baselines import PPO2
-```
-
-In general, we recommend using pycharm to format everything in an efficient way.
 
 Please document each function/method and [type](https://google.github.io/pytype/user_guide.html) them using the following template:
 
@@ -72,51 +51,3 @@ def my_function(arg1: type1, arg2: type2) -> returntype:
     ...
     return my_variable
 ```
-
-## Pull Request (PR)
-
-Before proposing a PR, please open an issue, where the feature will be discussed. This prevent from duplicated PR to be proposed and also ease the code review process.
-
-Each PR need to be reviewed and accepted by at least one of the maintainers (@hill-a, @araffin, @erniejunior, @AdamGleave or @Miffyli).
-A PR must pass the Continuous Integration tests (travis + codacy) to be merged with the master branch.
-
-Note: in rare cases, we can create exception for codacy failure.
-
-## Test
-
-All new features must add tests in the `tests/` folder ensuring that everything works fine.
-We use [pytest](https://pytest.org/).
-Also, when a bug fix is proposed, tests should be added to avoid regression.
-
-To run tests with `pytest`:
-
-```
-make pytest
-```
-
-Type checking with `pytype`:
-
-```
-make type
-```
-
-Build the documentation:
-
-```
-make doc
-```
-
-Check documentation spelling (you need to install `sphinxcontrib.spelling` package for that):
-
-```
-make spelling
-```
-
-
-## Changelog and Documentation
-
-Please do not forget to update the changelog (`docs/misc/changelog.rst`) and add documentation if needed.
-A README is present in the `docs/` folder for instructions on how to build the documentation.
-
-
-Credits: this contributing guide is based on the [PyTorch](https://github.com/pytorch/pytorch/) one.

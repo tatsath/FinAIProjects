@@ -6,12 +6,6 @@ Unsupervised - Clustering
 Template for Clustering
 
 
-Clustering-Master Template
-==========================
-
-This is a master template for implementing and working on several
-clustering techniques.
-
 Content
 -------
 

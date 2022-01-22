@@ -5,10 +5,6 @@ Unsupervised - Dimensionality Reduction
 
 Template for Dimensionality reduction
 
-
-Dimensionality Reduction-Master Template
-========================================
-
 In this notebook, we will learn about fundamental dimensionality
 reduction techniques that will help us to summarize the information
 content of a dataset by transforming it onto a new feature subspace of

@@ -12,18 +12,6 @@ problem in Python including each step of the applied machine learning
 process. However, this notebook is applicable for Regression based case
 study as well. The Models, Grid Search and Evaluation
 
-
-Classification-Master Template
-==============================
-
-How do you work through a predictive modeling- Classification or
-Regression based Machine learning problem end-to-end? In this jupyter
-note you will work through a case study classication predictive modeling
-problem in Python including each step of the applied machine learning
-process. However, this notebook is applicable for Regression based case
-study as well. The Models, Grid Search and Evaluation Metrics will need
-to change for the regression based case study.
-
 Content
 -------
 
