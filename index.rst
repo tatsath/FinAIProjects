@@ -1,16 +1,11 @@
-FinAILab-Templates - A curated repository of machine learning and AI templates across Machine learning type and Financial Application type.
+Plug and Play templated for Financial AI/ML applications 
 ===========================================================
-
-Just copy templates or copy code, plug in the data and build models.
-
-For more details refer to the book `Blueprints of Machine Learning and Data Science in Finance <https://www.amazon.com/Machine-Learning-Science-Blueprints-Finance/dp/1492073059>`_.
-
 
 Key highlights of Fin AI Projects
 --------------------------------------
-- Curated projects across different AI and Machine Learning type (i.e. Supervised Learning, Unsupervised Learning, Reinforcement Learning and NLP)
-- Curated projects across exhaustive set of applications in finance.
+- Curated projects across exhaustive set of Financial AI/ML applications and AI/ML types 
 - Plug and play github repositories - just plug in the data and build models.
+- For more details refer to the book `Blueprints of Machine Learning and Data Science in Finance <https://www.amazon.com/Machine-Learning-Science-Blueprints-Finance/dp/1492073059>`_.
 
 
 Templates by Machine Learning Types
