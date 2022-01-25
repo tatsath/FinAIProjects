@@ -1,4 +1,4 @@
-Plug and Play templated for Financial AI/ML applications 
+Plug and Play templates for Financial AI/ML applications 
 ===========================================================
 
 Key highlights of Fin AI Projects
