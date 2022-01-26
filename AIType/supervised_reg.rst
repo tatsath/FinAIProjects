@@ -1,102 +1,29 @@
 .. _supervised_reg:
 
-Supervised - Classification
+Supervised - Regression
 ===============
 
-Template for Supervised Classification
-
-Content
-------------------------------------------------
-
-Content
--------
-
--  `1. Problem Statement <#0>`__
--  `2. Getting Started - Load Libraries and Dataset <#1>`__
-
-   -  `2.1. Load Libraries <#1.1>`__
-   -  `2.2. Load Dataset <#1.2>`__
-
--  `3. Exploratory Data Analysis <#2>`__
-
-   -  `3.1 Descriptive Statistics <#2.1>`__
-   -  `3.2. Data Visualisation <#2.2>`__
-
--  `4. Data Preparation <#3>`__
-
-   -  `4.1 Data Cleaning <#3.1>`__
-   -  `4.3.Feature Selection <#3.2>`__
-   -  `4.3.Data Transformation <#3.3>`__
-
-      -  `4.3.1 Rescaling <#3.3.1>`__
-      -  `4.3.2 Standardization <#3.3.2>`__
-      -  `4.3.3 Normalization <#3.3.3>`__
-
--  `5.Evaluate Algorithms and Models <#4>`__
-
-   -  `5.1. Train/Test Split <#4.1>`__
-   -  `5.2. Test Options and Evaluation Metrics <#4.2>`__
-   -  `5.3. Compare Models and Algorithms <#4.3>`__
-
-      -  `5.3.1 Common Regression Models <#4.3.1>`__
-      -  `5.3.2 Ensemble Models <#4.3.2>`__
-      -  `5.3.3 Deep Learning Models <#4.3.3>`__
-
-   -  `5.4. Time Series based Models-ARIMA and LSTM <#4.4>`__
-
-      -  `5.4.1 ARIMA Model <#4.4.1>`__
-      -  `5.4.2 LSTM Model <#4.4.2>`__
-
--  `6. Model Tuning and Grid Search <#5>`__
-
-   -  `6.1 Common Regression, Ensemble and DeepNNRegressor Grid
-      Search <#5.1>`__
-   -  `6.2 ARIMA and LSTM Grid Search <#5.2>`__
-
--  `7. Finalize the Model <#6>`__
-
-   -  `7.1. Results on test dataset <#6.1>`__
-   -  `7.1. Variable Intuition/Feature Selection <#6.2>`__
-   -  `7.3. Save model for later use <#6.3>`__
-
-
-
-1. Problem Statement
-------------------------------------------------
-
-Our goal in this jupyter notebook is to under the following. A sample
-problem of stock price prediction in presented in this case study. - How
-to work through a predictive modeling problem end-to-end. This notebook
-is applicable both for regression and classification problems. - How to
-use data transforms to improve model performance. - How to use algorithm
-tuning to improve model performance. - How to use ensemble methods and
-tuning of ensemble methods to improve model performance. - How to use
-deep Learning methods. - Following Models are implemented
-
-::
-
-   * Linear Regression
-   * Lasso
-   * Elastic Net
-   * KNN
-   * Decision Tree (CART)
-   * Support Vector Machine
-   * Ada Boost
-   * Gradient Boosting Method
-   * Random Forest
-   * Extra Trees
-   * Neural Network - Shallow - Using sklearn
-   * Deep Neural Network - Using Keras
-
+This document contains the details of end to end code for each and every step in the building a supervised regression or a time series model using any of the following algorithms.
+- Linear Regression
+- Lasso
+- Elastic Net
+- KNN
+- Decision Tree (CART)
+- Support Vector Machine
+- Ada Boost
+- Gradient Boosting Method
+- Random Forest
+- Extra Trees
+- Neural Network - Shallow - Using sklearn
+- Deep Neural Network - Using Keras
 -  Time Series Models
-
    -  ARIMA Model
    -  LSTM - Using Keras
 
-2. Getting Started- Loading the data and python packages
+1. Loading the data and python packages
 ------------------------------------------------
 
-2.1. Loading the python packages
+1.1 Loading the python packages
 ^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: ipython3
@@ -147,7 +74,7 @@ deep Learning methods. - Following Models are implemented
     Using TensorFlow backend.
 
 
-2.2. Loading the Data
+1.2. Loading the Data
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: ipython3
@@ -207,10 +134,10 @@ value of the lagged variable will be used for prediction.
 
     dataset= series_to_supervised(dataset,1)
 
-3. Exploratory Data Analysis
+2. Exploratory Data Analysis
 ------------------------------------------------
 
-3.1. Descriptive Statistics
+2.1. Descriptive Statistics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: ipython3
@@ -239,7 +166,7 @@ value of the lagged variable will be used for prediction.
 
 
 
-3.2. Data Visualization
+2.2. Data Visualization
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: ipython3
@@ -299,7 +226,7 @@ value of the lagged variable will be used for prediction.
 .. image:: output_26_1.png
 
 
-3.3. Time Series Analysis
+2.3. Time Series Analysis
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Time series broken down into different time series comonent
@@ -318,10 +245,10 @@ Time series broken down into different time series comonent
 .. image:: output_29_0.png
 
 
-4. Data Preparation
+3. Data Preparation
 ------------------------------------------------
 
-4.1. Data Cleaning
+3.1. Data Cleaning
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Check for the NAs in the rows, either drop them
@@ -351,7 +278,7 @@ values.
     #Filling the NAs with the mean of the column.
     #dataset['col'] = dataset['col'].fillna(dataset['col'].mean())
 
-4.3. Feature Selection
+3.3. Feature Selection
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Statistical tests can be used to select those
@@ -424,7 +351,7 @@ As it can be seen from the result above that t-1 is an important feature
 
 
 
-4.4. Data Transformation
+3.4. Data Transformation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 4.4.1. Rescale Data When your data is comprised of attributes with
@@ -442,7 +369,7 @@ range between 0 and 1.
     rescaledX.head(5)
 
 
-4.4.2. Standardize Data Standardization is a useful technique to
+3.4.2. Standardize Data Standardization is a useful technique to
 transform attributes with a Gaussian distribution and differing means
 and standard deviations to a standard Gaussian distribution with a mean
 of 0 and a standard deviation of 1.
@@ -455,7 +382,7 @@ of 0 and a standard deviation of 1.
     # summarize transformed data
     StandardisedX.head(5)
 
-4.4.3. Normalize Data Normalizing in scikit-learn refers to
+3.4.3. Normalize Data Normalizing in scikit-learn refers to
 rescaling each observation (row) to have a length of 1 (called a unit
 norm or a vector with the length of 1 in linear algebra).
 
@@ -468,10 +395,10 @@ norm or a vector with the length of 1 in linear algebra).
     NormalizedX.head(5)
 
 
-5. Evaluate Algorithms and Models
+4. Evaluate Algorithms and Models
 ------------------------------------------------
 
-5.1. Train Test Split
+4.1. Train Test Split
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: ipython3
@@ -491,7 +418,7 @@ norm or a vector with the length of 1 in linear algebra).
     X_train, X_validation = X[0:train_size], X[train_size:len(X)]
     Y_train, Y_validation = Y[0:train_size], Y[train_size:len(X)]
 
-5.2. Test Options and Evaluation Metrics
+4.2. Test Options and Evaluation Metrics
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: ipython3
@@ -502,10 +429,10 @@ norm or a vector with the length of 1 in linear algebra).
     #scoring ='neg_mean_absolute_error'
     #scoring = 'r2'
 
-5.3. Compare Models and Algorithms
+4.3. Compare Models and Algorithms
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- ### 5.3.1. Common Models
+ ### 4.3.1. Common Models
 
 .. code:: ipython3
 
@@ -520,7 +447,7 @@ norm or a vector with the length of 1 in linear algebra).
     #Neural Network
     models.append(('MLP', MLPRegressor()))
 
- ### 5.3.2. Ensemble Models
+ ### 4.3.2. Ensemble Models
 
 .. code:: ipython3
 
@@ -532,7 +459,7 @@ norm or a vector with the length of 1 in linear algebra).
     models.append(('RFR', RandomForestRegressor()))
     models.append(('ETR', ExtraTreesRegressor()))
 
- ### 5.3.3. Deep Learning Model-NN Regressor
+ ### 4.3.3. Deep Learning Model-NN Regressor
 
 .. code:: ipython3
 
@@ -613,10 +540,10 @@ Algorithm comparison
 
 The chart shows MSE. Lower the MSE, better is the model performance.
 
-5.4. Time Series based Models- ARIMA and LSTM
+4.4. Time Series based Models- ARIMA and LSTM
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- ### 5.4.1 Time Series Model - ARIMA Model
+ ### 4.4.1 Time Series Model - ARIMA Model
 
 .. code:: ipython3
 
@@ -664,7 +591,7 @@ The chart shows MSE. Lower the MSE, better is the model performance.
     # tscv = TimeSeriesSplit(n_splits=5)
     # scores = cross_val_score(modelARIMA, X_train, Y_train, cv=tscv, scoring=scoring)
 
- ### 5.4.2 LSTM Model
+ ### 4.4.2 LSTM Model
 
 The data needs to be in 3D format for the LSTM model. So, Performing the
 data transform.
@@ -699,18 +626,6 @@ data transform.
         return model
     LSTMModel = create_LSTMmodel(12, learn_rate = 0.01, momentum=0)
     LSTMModel_fit = LSTMModel.fit(X_train_LSTM, Y_train_LSTM, validation_data=(X_validation_LSTM, Y_validation_LSTM),epochs=50, batch_size=72, verbose=0, shuffle=False)# plot history
-
-
-
-.. parsed-literal::
-
-    WARNING:tensorflow:From D:\Anaconda\lib\site-packages\tensorflow\python\framework\op_def_library.py:263: colocate_with (from tensorflow.python.framework.ops) is deprecated and will be removed in a future version.
-    Instructions for updating:
-    Colocations handled automatically by placer.
-    WARNING:tensorflow:From D:\Anaconda\lib\site-packages\tensorflow\python\ops\math_ops.py:3066: to_int32 (from tensorflow.python.ops.math_ops) is deprecated and will be removed in a future version.
-    Instructions for updating:
-    Use tf.cast instead.
-
 
 .. code:: ipython3
 
@@ -767,7 +682,7 @@ Overall Comparison of all the algorithms ( including Time Series Algorithms)
 Grid Search uses Cross validation which isn’t appropriate for the time
 series models such as LSTM
 
-6. Model Tuning and Grid Search
+5. Model Tuning and Grid Search
 ------------------------------------------------
 
   This section shown the Grid search
@@ -775,7 +690,7 @@ for all the Machine Learning and time series models mentioned in the
 book.
 
 
-6.1. Common Regression, Ensemble and DeepNNRegressor Grid Search
+5.1. Common Regression, Ensemble and DeepNNRegressor Grid Search
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: ipython3
@@ -1408,14 +1323,14 @@ book.
     Best LSTM(5, 0.3, 0.0) MSE=0.0008902
 
 
-7. Finalise the Model
+6. Finalise the Model
 ------------------------------------------------
 
 Let us select one of the model to finalize the data. Looking at the
 results for the Random Forest Model. Looking at the results for the
 RandomForestRegressor model
 
-7.1. Results on the Test Dataset
+6.1. Results on the Test Dataset
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: ipython3
@@ -1453,8 +1368,9 @@ RandomForestRegressor model
     print(r2_score(Y_validation, predictions))
 
 
-7.2. Variable Intuition/Feature Importance
+6.2. Variable Intuition/Feature Importance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Let us look into the Feature Importance of the Random Forest model
 
 .. code:: ipython3
@@ -1480,7 +1396,8 @@ Let us look into the Feature Importance of the Random Forest model
 .. image:: output_105_1.png
 
 
- ## 7.3. Save Model for Later Use
+6.3. Save Model for Later Use
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: ipython3
 
