@@ -39,13 +39,11 @@ Templates by Financial Application
   Appl/DerivPric
   Appl/AssetPred
   Appl/Fraud
-  Appl/LoanDefault
-  Appl/Automation
 
 Contributing
 ------------
 
-To any interested in making the FinAIML better, there are still some improvements
+To any interested in making the FinAIML Projects better, there are still some improvements
 that need to be done.
 A full TODO list is available in the `roadmap <https://github.com/users/tatsath/projects/4>`_.
 

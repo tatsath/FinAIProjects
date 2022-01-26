@@ -8,6 +8,58 @@ Template for Supervised Classification
 Content
 ------------------------------------------------
 
+Content
+-------
+
+-  `1. Problem Statement <#0>`__
+-  `2. Getting Started - Load Libraries and Dataset <#1>`__
+
+   -  `2.1. Load Libraries <#1.1>`__
+   -  `2.2. Load Dataset <#1.2>`__
+
+-  `3. Exploratory Data Analysis <#2>`__
+
+   -  `3.1 Descriptive Statistics <#2.1>`__
+   -  `3.2. Data Visualisation <#2.2>`__
+
+-  `4. Data Preparation <#3>`__
+
+   -  `4.1 Data Cleaning <#3.1>`__
+   -  `4.3.Feature Selection <#3.2>`__
+   -  `4.3.Data Transformation <#3.3>`__
+
+      -  `4.3.1 Rescaling <#3.3.1>`__
+      -  `4.3.2 Standardization <#3.3.2>`__
+      -  `4.3.3 Normalization <#3.3.3>`__
+
+-  `5.Evaluate Algorithms and Models <#4>`__
+
+   -  `5.1. Train/Test Split <#4.1>`__
+   -  `5.2. Test Options and Evaluation Metrics <#4.2>`__
+   -  `5.3. Compare Models and Algorithms <#4.3>`__
+
+      -  `5.3.1 Common Regression Models <#4.3.1>`__
+      -  `5.3.2 Ensemble Models <#4.3.2>`__
+      -  `5.3.3 Deep Learning Models <#4.3.3>`__
+
+   -  `5.4. Time Series based Models-ARIMA and LSTM <#4.4>`__
+
+      -  `5.4.1 ARIMA Model <#4.4.1>`__
+      -  `5.4.2 LSTM Model <#4.4.2>`__
+
+-  `6. Model Tuning and Grid Search <#5>`__
+
+   -  `6.1 Common Regression, Ensemble and DeepNNRegressor Grid
+      Search <#5.1>`__
+   -  `6.2 ARIMA and LSTM Grid Search <#5.2>`__
+
+-  `7. Finalize the Model <#6>`__
+
+   -  `7.1. Results on test dataset <#6.1>`__
+   -  `7.1. Variable Intuition/Feature Selection <#6.2>`__
+   -  `7.3. Save model for later use <#6.3>`__
+
+
 
 1. Problem Statement
 ------------------------------------------------
@@ -127,24 +179,6 @@ deep Learning methods. - Following Models are implemented
     Y = dataset.loc[:, Y.name]
     X = dataset.loc[:, X.columns]
 
-.. code:: ipython3
-
-    #Diable the warnings
-    import warnings
-    warnings.filterwarnings('ignore')
-
-.. code:: ipython3
-
-    type(dataset)
-
-
-
-
-.. parsed-literal::
-
-    pandas.core.frame.DataFrame
-
-
 
 Converting the data to supervised regression format
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -171,7 +205,8 @@ value of the lagged variable will be used for prediction.
 
     dataset= series_to_supervised(dataset,1)
 
- # 3. Exploratory Data Analysis
+3. Exploratory Data Analysis
+------------------------------------------------
 
  ## 3.1. Descriptive Statistics
 
@@ -194,83 +229,6 @@ value of the lagged variable will be used for prediction.
     # peek at data
     pd.set_option('display.width', 100)
     dataset.head(2)
-
-
-
-
-.. raw:: html
-
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>MSFT_pred</th>
-          <th>MSFT_pred(t-1)</th>
-          <th>GOOGL(t-1)</th>
-          <th>IBM(t-1)</th>
-          <th>DEXJPUS(t-1)</th>
-          <th>DEXUSUK(t-1)</th>
-          <th>SP500(t-1)</th>
-          <th>DJIA(t-1)</th>
-          <th>VIXCLS(t-1)</th>
-          <th>1M(t-1)</th>
-          <th>3M(t-1)</th>
-          <th>6M(t-1)</th>
-          <th>1Y(t-1)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>2011-01-04</th>
-          <td>-0.015788</td>
-          <td>-0.001431</td>
-          <td>0.055329</td>
-          <td>0.015718</td>
-          <td>-0.014243</td>
-          <td>-0.014930</td>
-          <td>0.037784</td>
-          <td>0.025045</td>
-          <td>-0.022460</td>
-          <td>-0.041166</td>
-          <td>-0.137312</td>
-          <td>-0.078563</td>
-          <td>0.076487</td>
-        </tr>
-        <tr>
-          <th>2011-01-05</th>
-          <td>-0.008248</td>
-          <td>-0.015788</td>
-          <td>0.049571</td>
-          <td>0.015426</td>
-          <td>-0.008988</td>
-          <td>-0.006013</td>
-          <td>0.037769</td>
-          <td>0.028544</td>
-          <td>-0.036162</td>
-          <td>-0.054624</td>
-          <td>-0.120203</td>
-          <td>-0.058879</td>
-          <td>0.090434</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-
-
 
 .. code:: ipython3
 
@@ -306,176 +264,6 @@ value of the lagged variable will be used for prediction.
     pd.set_option('precision', 3)
     dataset.describe()
 
-
-
-
-.. raw:: html
-
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>MSFT_pred</th>
-          <th>MSFT_pred(t-1)</th>
-          <th>GOOGL(t-1)</th>
-          <th>IBM(t-1)</th>
-          <th>DEXJPUS(t-1)</th>
-          <th>DEXUSUK(t-1)</th>
-          <th>SP500(t-1)</th>
-          <th>DJIA(t-1)</th>
-          <th>VIXCLS(t-1)</th>
-          <th>1M(t-1)</th>
-          <th>3M(t-1)</th>
-          <th>6M(t-1)</th>
-          <th>1Y(t-1)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>count</th>
-          <td>2252.000</td>
-          <td>2252.000</td>
-          <td>2252.000</td>
-          <td>2252.000</td>
-          <td>2.252e+03</td>
-          <td>2.252e+03</td>
-          <td>2252.000</td>
-          <td>2252.000</td>
-          <td>2252.000</td>
-          <td>2.252e+03</td>
-          <td>2.252e+03</td>
-          <td>2252.000</td>
-          <td>2252.000</td>
-        </tr>
-        <tr>
-          <th>mean</th>
-          <td>0.019</td>
-          <td>0.019</td>
-          <td>0.014</td>
-          <td>0.001</td>
-          <td>2.056e-03</td>
-          <td>-1.915e-03</td>
-          <td>0.008</td>
-          <td>0.007</td>
-          <td>0.005</td>
-          <td>4.086e-04</td>
-          <td>5.506e-04</td>
-          <td>0.001</td>
-          <td>0.004</td>
-        </tr>
-        <tr>
-          <th>std</th>
-          <td>0.058</td>
-          <td>0.058</td>
-          <td>0.067</td>
-          <td>0.063</td>
-          <td>2.503e-02</td>
-          <td>2.374e-02</td>
-          <td>0.043</td>
-          <td>0.045</td>
-          <td>0.265</td>
-          <td>8.737e-02</td>
-          <td>8.570e-02</td>
-          <td>0.077</td>
-          <td>0.081</td>
-        </tr>
-        <tr>
-          <th>min</th>
-          <td>-0.302</td>
-          <td>-0.302</td>
-          <td>-0.351</td>
-          <td>-0.461</td>
-          <td>-8.290e-02</td>
-          <td>-1.227e-01</td>
-          <td>-0.400</td>
-          <td>-0.444</td>
-          <td>-0.827</td>
-          <td>-4.272e-01</td>
-          <td>-3.467e-01</td>
-          <td>-0.327</td>
-          <td>-0.410</td>
-        </tr>
-        <tr>
-          <th>25%</th>
-          <td>-0.014</td>
-          <td>-0.014</td>
-          <td>-0.028</td>
-          <td>-0.031</td>
-          <td>-1.294e-02</td>
-          <td>-1.556e-02</td>
-          <td>-0.009</td>
-          <td>-0.010</td>
-          <td>-0.148</td>
-          <td>-5.193e-02</td>
-          <td>-4.780e-02</td>
-          <td>-0.047</td>
-          <td>-0.048</td>
-        </tr>
-        <tr>
-          <th>50%</th>
-          <td>0.023</td>
-          <td>0.023</td>
-          <td>0.017</td>
-          <td>0.004</td>
-          <td>9.865e-04</td>
-          <td>-7.240e-04</td>
-          <td>0.014</td>
-          <td>0.012</td>
-          <td>-0.021</td>
-          <td>5.407e-05</td>
-          <td>1.940e-03</td>
-          <td>-0.002</td>
-          <td>0.004</td>
-        </tr>
-        <tr>
-          <th>75%</th>
-          <td>0.052</td>
-          <td>0.052</td>
-          <td>0.053</td>
-          <td>0.039</td>
-          <td>1.489e-02</td>
-          <td>1.384e-02</td>
-          <td>0.030</td>
-          <td>0.031</td>
-          <td>0.120</td>
-          <td>4.945e-02</td>
-          <td>5.187e-02</td>
-          <td>0.045</td>
-          <td>0.056</td>
-        </tr>
-        <tr>
-          <th>max</th>
-          <td>0.244</td>
-          <td>0.244</td>
-          <td>0.271</td>
-          <td>0.230</td>
-          <td>1.023e-01</td>
-          <td>6.963e-02</td>
-          <td>0.203</td>
-          <td>0.214</td>
-          <td>1.799</td>
-          <td>5.407e-01</td>
-          <td>3.619e-01</td>
-          <td>0.275</td>
-          <td>0.230</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
 
 
 
@@ -572,7 +360,8 @@ Time series broken down into different time series comonent
 .. image:: output_29_0.png
 
 
- ## 4. Data Preparation
+4. Data Preparation
+------------------------------------------------
 
  ## 4.1. Data Cleaning Check for the NAs in the rows, either drop them
 or fill them with the mean of the column
@@ -688,124 +477,6 @@ range between 0 and 1.
     rescaledX.head(5)
 
 
-
-
-.. raw:: html
-
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>0</th>
-          <th>1</th>
-          <th>2</th>
-          <th>3</th>
-          <th>4</th>
-          <th>5</th>
-          <th>6</th>
-          <th>7</th>
-          <th>8</th>
-          <th>9</th>
-          <th>10</th>
-          <th>11</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>0</th>
-          <td>0.551</td>
-          <td>0.653</td>
-          <td>0.690</td>
-          <td>0.371</td>
-          <td>0.560</td>
-          <td>0.726</td>
-          <td>0.713</td>
-          <td>0.306</td>
-          <td>0.399</td>
-          <td>0.296</td>
-          <td>0.413</td>
-          <td>0.760</td>
-        </tr>
-        <tr>
-          <th>1</th>
-          <td>0.525</td>
-          <td>0.644</td>
-          <td>0.689</td>
-          <td>0.399</td>
-          <td>0.607</td>
-          <td>0.726</td>
-          <td>0.719</td>
-          <td>0.301</td>
-          <td>0.385</td>
-          <td>0.320</td>
-          <td>0.446</td>
-          <td>0.781</td>
-        </tr>
-        <tr>
-          <th>2</th>
-          <td>0.538</td>
-          <td>0.648</td>
-          <td>0.687</td>
-          <td>0.459</td>
-          <td>0.537</td>
-          <td>0.734</td>
-          <td>0.723</td>
-          <td>0.294</td>
-          <td>0.389</td>
-          <td>0.329</td>
-          <td>0.454</td>
-          <td>0.773</td>
-        </tr>
-        <tr>
-          <th>3</th>
-          <td>0.514</td>
-          <td>0.635</td>
-          <td>0.713</td>
-          <td>0.382</td>
-          <td>0.538</td>
-          <td>0.724</td>
-          <td>0.718</td>
-          <td>0.307</td>
-          <td>0.347</td>
-          <td>0.331</td>
-          <td>0.418</td>
-          <td>0.753</td>
-        </tr>
-        <tr>
-          <th>4</th>
-          <td>0.533</td>
-          <td>0.633</td>
-          <td>0.696</td>
-          <td>0.395</td>
-          <td>0.580</td>
-          <td>0.715</td>
-          <td>0.716</td>
-          <td>0.312</td>
-          <td>0.379</td>
-          <td>0.350</td>
-          <td>0.509</td>
-          <td>0.764</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-
-
-
  ### 4.4.2. Standardize Data Standardization is a useful technique to
 transform attributes with a Gaussian distribution and differing means
 and standard deviations to a standard Gaussian distribution with a mean
@@ -818,125 +489,6 @@ of 0 and a standard deviation of 1.
     StandardisedX = pd.DataFrame(scaler.fit_transform(X))
     # summarize transformed data
     StandardisedX.head(5)
-
-
-
-
-.. raw:: html
-
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>0</th>
-          <th>1</th>
-          <th>2</th>
-          <th>3</th>
-          <th>4</th>
-          <th>5</th>
-          <th>6</th>
-          <th>7</th>
-          <th>8</th>
-          <th>9</th>
-          <th>10</th>
-          <th>11</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>0</th>
-          <td>-0.357</td>
-          <td>0.624</td>
-          <td>0.229</td>
-          <td>-0.651</td>
-          <td>-0.548</td>
-          <td>0.695</td>
-          <td>0.408</td>
-          <td>-0.104</td>
-          <td>-0.476</td>
-          <td>-1.609</td>
-          <td>-1.041</td>
-          <td>0.889</td>
-        </tr>
-        <tr>
-          <th>1</th>
-          <td>-0.604</td>
-          <td>0.538</td>
-          <td>0.224</td>
-          <td>-0.441</td>
-          <td>-0.173</td>
-          <td>0.694</td>
-          <td>0.486</td>
-          <td>-0.155</td>
-          <td>-0.630</td>
-          <td>-1.409</td>
-          <td>-0.784</td>
-          <td>1.061</td>
-        </tr>
-        <tr>
-          <th>2</th>
-          <td>-0.474</td>
-          <td>0.570</td>
-          <td>0.203</td>
-          <td>0.004</td>
-          <td>-0.740</td>
-          <td>0.797</td>
-          <td>0.552</td>
-          <td>-0.228</td>
-          <td>-0.583</td>
-          <td>-1.330</td>
-          <td>-0.719</td>
-          <td>0.999</td>
-        </tr>
-        <tr>
-          <th>3</th>
-          <td>-0.707</td>
-          <td>0.454</td>
-          <td>0.482</td>
-          <td>-0.565</td>
-          <td>-0.733</td>
-          <td>0.663</td>
-          <td>0.477</td>
-          <td>-0.092</td>
-          <td>-1.056</td>
-          <td>-1.315</td>
-          <td>-1.001</td>
-          <td>0.836</td>
-        </tr>
-        <tr>
-          <th>4</th>
-          <td>-0.526</td>
-          <td>0.439</td>
-          <td>0.299</td>
-          <td>-0.470</td>
-          <td>-0.385</td>
-          <td>0.533</td>
-          <td>0.439</td>
-          <td>-0.043</td>
-          <td>-0.695</td>
-          <td>-1.156</td>
-          <td>-0.287</td>
-          <td>0.922</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-
-
 
  ### 4.4.1. Normalize Data Normalizing in scikit-learn refers to
 rescaling each observation (row) to have a length of 1 (called a unit
@@ -951,125 +503,8 @@ norm or a vector with the length of 1 in linear algebra).
     NormalizedX.head(5)
 
 
-
-
-.. raw:: html
-
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>0</th>
-          <th>1</th>
-          <th>2</th>
-          <th>3</th>
-          <th>4</th>
-          <th>5</th>
-          <th>6</th>
-          <th>7</th>
-          <th>8</th>
-          <th>9</th>
-          <th>10</th>
-          <th>11</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>0</th>
-          <td>-0.007</td>
-          <td>0.281</td>
-          <td>0.080</td>
-          <td>-0.072</td>
-          <td>-0.076</td>
-          <td>0.192</td>
-          <td>0.127</td>
-          <td>-0.114</td>
-          <td>-0.209</td>
-          <td>-0.696</td>
-          <td>-0.398</td>
-          <td>0.388</td>
-        </tr>
-        <tr>
-          <th>1</th>
-          <td>-0.084</td>
-          <td>0.262</td>
-          <td>0.082</td>
-          <td>-0.048</td>
-          <td>-0.032</td>
-          <td>0.200</td>
-          <td>0.151</td>
-          <td>-0.191</td>
-          <td>-0.289</td>
-          <td>-0.636</td>
-          <td>-0.312</td>
-          <td>0.479</td>
-        </tr>
-        <tr>
-          <th>2</th>
-          <td>-0.044</td>
-          <td>0.277</td>
-          <td>0.076</td>
-          <td>0.012</td>
-          <td>-0.104</td>
-          <td>0.226</td>
-          <td>0.169</td>
-          <td>-0.297</td>
-          <td>-0.271</td>
-          <td>-0.608</td>
-          <td>-0.289</td>
-          <td>0.458</td>
-        </tr>
-        <tr>
-          <th>3</th>
-          <td>-0.111</td>
-          <td>0.224</td>
-          <td>0.162</td>
-          <td>-0.062</td>
-          <td>-0.099</td>
-          <td>0.186</td>
-          <td>0.144</td>
-          <td>-0.099</td>
-          <td>-0.469</td>
-          <td>-0.573</td>
-          <td>-0.386</td>
-          <td>0.369</td>
-        </tr>
-        <tr>
-          <th>4</th>
-          <td>-0.072</td>
-          <td>0.275</td>
-          <td>0.129</td>
-          <td>-0.062</td>
-          <td>-0.071</td>
-          <td>0.197</td>
-          <td>0.170</td>
-          <td>-0.041</td>
-          <td>-0.387</td>
-          <td>-0.632</td>
-          <td>-0.134</td>
-          <td>0.508</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-
-
-
- # 5. Evaluate Algorithms and Models
+5. Evaluate Algorithms and Models
+------------------------------------------------
 
  ## 5.1. Train Test Split
 
@@ -1363,9 +798,13 @@ Overall Comparison of all the algorithms ( including Time Series Algorithms)
 Grid Search uses Cross validation which isn’t appropriate for the time
 series models such as LSTM
 
- # 6. Model Tuning and Grid Search This section shown the Grid search
+6. Model Tuning and Grid Search
+------------------------------------------------
+
+  This section shown the Grid search
 for all the Machine Learning and time series models mentioned in the
 book.
+
 
  ### 6.1. Common Regression, Ensemble and DeepNNRegressor Grid Search
 
@@ -1999,7 +1438,8 @@ book.
     Best LSTM(5, 0.3, 0.0) MSE=0.0008902
 
 
- # 7. Finalise the Model
+7. Finalise the Model
+------------------------------------------------
 
 Let us select one of the model to finalize the data. Looking at the
 results for the Random Forest Model. Looking at the results for the

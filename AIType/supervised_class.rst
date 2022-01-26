@@ -54,7 +54,8 @@ Content
    -  `7.1. Variable Intuition/Feature Selection <#6.2>`__
    -  `7.3. Save model for later use <#6.3>`__
 
- # 1. Introduction
+1. Introduction
+-------
 
 Our goal in this jupyter notebook is to under the following - How to
 work through a predictive modeling problem end-to-end. This notebook is
@@ -84,7 +85,8 @@ implemented and checked:
    * Neural Network - Shallow
    * Deep Neural Network
 
- # 2. Getting Started- Loading the data and python packages
+2. Getting Started- Loading the data and python packages
+-------
 
  ## 2.1. Loading the python packages
 
@@ -146,7 +148,8 @@ implemented and checked:
 
 
 
- # 3. Exploratory Data Analysis
+3. Exploratory Data Analysis
+-------
 
  ## 3.1. Descriptive Statistics
 
@@ -168,74 +171,7 @@ implemented and checked:
 
     # peek at data
     set_option('display.width', 100)
-    dataset.head(2)
-
-
-
-
-.. raw:: html
-
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>Age</th>
-          <th>Sex</th>
-          <th>Job</th>
-          <th>Housing</th>
-          <th>SavingAccounts</th>
-          <th>CheckingAccount</th>
-          <th>CreditAmount</th>
-          <th>Duration</th>
-          <th>Purpose</th>
-          <th>Risk</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>0</th>
-          <td>67</td>
-          <td>male</td>
-          <td>2</td>
-          <td>own</td>
-          <td>NaN</td>
-          <td>little</td>
-          <td>1169</td>
-          <td>6</td>
-          <td>radio/TV</td>
-          <td>good</td>
-        </tr>
-        <tr>
-          <th>1</th>
-          <td>22</td>
-          <td>female</td>
-          <td>2</td>
-          <td>own</td>
-          <td>little</td>
-          <td>moderate</td>
-          <td>5951</td>
-          <td>48</td>
-          <td>radio/TV</td>
-          <td>bad</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-
+    dataset.head()
 
 
 .. code:: ipython3
@@ -268,97 +204,6 @@ implemented and checked:
     # describe data
     set_option('precision', 3)
     dataset.describe()
-
-
-
-
-.. raw:: html
-
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>Age</th>
-          <th>Job</th>
-          <th>CreditAmount</th>
-          <th>Duration</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>count</th>
-          <td>1000.000</td>
-          <td>1000.000</td>
-          <td>1000.000</td>
-          <td>1000.000</td>
-        </tr>
-        <tr>
-          <th>mean</th>
-          <td>35.546</td>
-          <td>1.904</td>
-          <td>3271.258</td>
-          <td>20.903</td>
-        </tr>
-        <tr>
-          <th>std</th>
-          <td>11.375</td>
-          <td>0.654</td>
-          <td>2822.737</td>
-          <td>12.059</td>
-        </tr>
-        <tr>
-          <th>min</th>
-          <td>19.000</td>
-          <td>0.000</td>
-          <td>250.000</td>
-          <td>4.000</td>
-        </tr>
-        <tr>
-          <th>25%</th>
-          <td>27.000</td>
-          <td>2.000</td>
-          <td>1365.500</td>
-          <td>12.000</td>
-        </tr>
-        <tr>
-          <th>50%</th>
-          <td>33.000</td>
-          <td>2.000</td>
-          <td>2319.500</td>
-          <td>18.000</td>
-        </tr>
-        <tr>
-          <th>75%</th>
-          <td>42.000</td>
-          <td>2.000</td>
-          <td>3972.250</td>
-          <td>24.000</td>
-        </tr>
-        <tr>
-          <th>max</th>
-          <td>75.000</td>
-          <td>3.000</td>
-          <td>18424.000</td>
-          <td>72.000</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-
 
 
 .. code:: ipython3
@@ -455,7 +300,8 @@ implemented and checked:
 .. image:: output_24_1.png
 
 
- ## 4. Data Preparation
+4. Data Preparation
+-------
 
  ## 4.1. Data Cleaning Check for the NAs in the rows, either drop them
 or fill them with the mean of the column
@@ -499,253 +345,7 @@ values.
     dataset["Risk_Code"] = lb_make.fit_transform(dataset["Risk"])
     dataset[["Sex", "Sex_Code","Housing","Housing_Code","Risk_Code","Risk"]].head(10)
 
-
-
-
-
-.. raw:: html
-
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>Sex</th>
-          <th>Sex_Code</th>
-          <th>Housing</th>
-          <th>Housing_Code</th>
-          <th>Risk_Code</th>
-          <th>Risk</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>1</th>
-          <td>female</td>
-          <td>0</td>
-          <td>own</td>
-          <td>1</td>
-          <td>0</td>
-          <td>bad</td>
-        </tr>
-        <tr>
-          <th>3</th>
-          <td>male</td>
-          <td>1</td>
-          <td>free</td>
-          <td>0</td>
-          <td>1</td>
-          <td>good</td>
-        </tr>
-        <tr>
-          <th>4</th>
-          <td>male</td>
-          <td>1</td>
-          <td>free</td>
-          <td>0</td>
-          <td>0</td>
-          <td>bad</td>
-        </tr>
-        <tr>
-          <th>7</th>
-          <td>male</td>
-          <td>1</td>
-          <td>rent</td>
-          <td>2</td>
-          <td>1</td>
-          <td>good</td>
-        </tr>
-        <tr>
-          <th>9</th>
-          <td>male</td>
-          <td>1</td>
-          <td>own</td>
-          <td>1</td>
-          <td>0</td>
-          <td>bad</td>
-        </tr>
-        <tr>
-          <th>10</th>
-          <td>female</td>
-          <td>0</td>
-          <td>rent</td>
-          <td>2</td>
-          <td>0</td>
-          <td>bad</td>
-        </tr>
-        <tr>
-          <th>11</th>
-          <td>female</td>
-          <td>0</td>
-          <td>rent</td>
-          <td>2</td>
-          <td>0</td>
-          <td>bad</td>
-        </tr>
-        <tr>
-          <th>12</th>
-          <td>female</td>
-          <td>0</td>
-          <td>own</td>
-          <td>1</td>
-          <td>1</td>
-          <td>good</td>
-        </tr>
-        <tr>
-          <th>13</th>
-          <td>male</td>
-          <td>1</td>
-          <td>own</td>
-          <td>1</td>
-          <td>0</td>
-          <td>bad</td>
-        </tr>
-        <tr>
-          <th>14</th>
-          <td>female</td>
-          <td>0</td>
-          <td>rent</td>
-          <td>2</td>
-          <td>1</td>
-          <td>good</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-
-
-
-.. code:: ipython3
-
-    #dropping the old features
-    dataset.drop(['Sex','Housing','SavingAccounts','CheckingAccount','Purpose','Risk'],axis=1,inplace=True)
-
-
-.. code:: ipython3
-
-    dataset.head(5)
-
-
-
-
-.. raw:: html
-
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>Age</th>
-          <th>Job</th>
-          <th>CreditAmount</th>
-          <th>Duration</th>
-          <th>Sex_Code</th>
-          <th>Housing_Code</th>
-          <th>SavingAccount_Code</th>
-          <th>CheckingAccount_Code</th>
-          <th>Purpose_Code</th>
-          <th>Risk_Code</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>1</th>
-          <td>22</td>
-          <td>2</td>
-          <td>5951</td>
-          <td>48</td>
-          <td>0</td>
-          <td>1</td>
-          <td>0</td>
-          <td>1</td>
-          <td>5</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <th>3</th>
-          <td>45</td>
-          <td>2</td>
-          <td>7882</td>
-          <td>42</td>
-          <td>1</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>4</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <th>4</th>
-          <td>53</td>
-          <td>2</td>
-          <td>4870</td>
-          <td>24</td>
-          <td>1</td>
-          <td>0</td>
-          <td>0</td>
-          <td>0</td>
-          <td>1</td>
-          <td>0</td>
-        </tr>
-        <tr>
-          <th>7</th>
-          <td>35</td>
-          <td>3</td>
-          <td>6948</td>
-          <td>36</td>
-          <td>1</td>
-          <td>2</td>
-          <td>0</td>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <th>9</th>
-          <td>28</td>
-          <td>3</td>
-          <td>5234</td>
-          <td>30</td>
-          <td>1</td>
-          <td>1</td>
-          <td>0</td>
-          <td>1</td>
-          <td>1</td>
-          <td>0</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-
-
-
- ## 4.3. Feature Selection Statistical tests can be used to select those
+## 4.3. Feature Selection Statistical tests can be used to select those
 features that have the strongest relationship with the output
 variable.The scikit-learn library provides the SelectKBest class that
 can be used with a suite of different statistical tests to select a
@@ -819,106 +419,6 @@ range between 0 and 1.
     rescaledX.head(5)
 
 
-
-
-.. raw:: html
-
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>0</th>
-          <th>1</th>
-          <th>2</th>
-          <th>3</th>
-          <th>4</th>
-          <th>5</th>
-          <th>6</th>
-          <th>7</th>
-          <th>8</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>0</th>
-          <td>0.054</td>
-          <td>0.667</td>
-          <td>0.313</td>
-          <td>0.636</td>
-          <td>0.0</td>
-          <td>0.5</td>
-          <td>0.0</td>
-          <td>0.5</td>
-          <td>0.714</td>
-        </tr>
-        <tr>
-          <th>1</th>
-          <td>0.464</td>
-          <td>0.667</td>
-          <td>0.419</td>
-          <td>0.545</td>
-          <td>1.0</td>
-          <td>0.0</td>
-          <td>0.0</td>
-          <td>0.0</td>
-          <td>0.571</td>
-        </tr>
-        <tr>
-          <th>2</th>
-          <td>0.607</td>
-          <td>0.667</td>
-          <td>0.253</td>
-          <td>0.273</td>
-          <td>1.0</td>
-          <td>0.0</td>
-          <td>0.0</td>
-          <td>0.0</td>
-          <td>0.143</td>
-        </tr>
-        <tr>
-          <th>3</th>
-          <td>0.286</td>
-          <td>1.000</td>
-          <td>0.368</td>
-          <td>0.455</td>
-          <td>1.0</td>
-          <td>1.0</td>
-          <td>0.0</td>
-          <td>0.5</td>
-          <td>0.143</td>
-        </tr>
-        <tr>
-          <th>4</th>
-          <td>0.161</td>
-          <td>1.000</td>
-          <td>0.273</td>
-          <td>0.364</td>
-          <td>1.0</td>
-          <td>0.5</td>
-          <td>0.0</td>
-          <td>0.5</td>
-          <td>0.143</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-
-
-
  ### 4.4.2. Standardize Data Standardization is a useful technique to
 transform attributes with a Gaussian distribution and differing means
 and standard deviations to a standard Gaussian distribution with a mean
@@ -932,106 +432,6 @@ of 0 and a standard deviation of 1.
     StandardisedX = pd.DataFrame(scaler.fit_transform(X))
     # summarize transformed data
     StandardisedX.head(5)
-
-
-
-
-.. raw:: html
-
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>0</th>
-          <th>1</th>
-          <th>2</th>
-          <th>3</th>
-          <th>4</th>
-          <th>5</th>
-          <th>6</th>
-          <th>7</th>
-          <th>8</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>0</th>
-          <td>-1.094</td>
-          <td>0.183</td>
-          <td>0.913</td>
-          <td>2.139</td>
-          <td>-1.452</td>
-          <td>-0.145</td>
-          <td>-0.451</td>
-          <td>0.557</td>
-          <td>1.063</td>
-        </tr>
-        <tr>
-          <th>1</th>
-          <td>0.859</td>
-          <td>0.183</td>
-          <td>1.573</td>
-          <td>1.658</td>
-          <td>0.689</td>
-          <td>-1.900</td>
-          <td>-0.451</td>
-          <td>-0.958</td>
-          <td>0.561</td>
-        </tr>
-        <tr>
-          <th>2</th>
-          <td>1.538</td>
-          <td>0.183</td>
-          <td>0.544</td>
-          <td>0.214</td>
-          <td>0.689</td>
-          <td>-1.900</td>
-          <td>-0.451</td>
-          <td>-0.958</td>
-          <td>-0.944</td>
-        </tr>
-        <tr>
-          <th>3</th>
-          <td>0.009</td>
-          <td>1.648</td>
-          <td>1.254</td>
-          <td>1.176</td>
-          <td>0.689</td>
-          <td>1.611</td>
-          <td>-0.451</td>
-          <td>0.557</td>
-          <td>-0.944</td>
-        </tr>
-        <tr>
-          <th>4</th>
-          <td>-0.585</td>
-          <td>1.648</td>
-          <td>0.668</td>
-          <td>0.695</td>
-          <td>0.689</td>
-          <td>-0.145</td>
-          <td>-0.451</td>
-          <td>0.557</td>
-          <td>-0.944</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-
 
 
  ### 4.4.1. Normalize Data Normalizing in scikit-learn refers to
@@ -1048,107 +448,8 @@ norm or a vector with the length of 1 in linear algebra).
     NormalizedX.head(5)
 
 
-
-
-.. raw:: html
-
-    <div>
-    <style scoped>
-        .dataframe tbody tr th:only-of-type {
-            vertical-align: middle;
-        }
-
-        .dataframe tbody tr th {
-            vertical-align: top;
-        }
-
-        .dataframe thead th {
-            text-align: right;
-        }
-    </style>
-    <table border="1" class="dataframe">
-      <thead>
-        <tr style="text-align: right;">
-          <th></th>
-          <th>0</th>
-          <th>1</th>
-          <th>2</th>
-          <th>3</th>
-          <th>4</th>
-          <th>5</th>
-          <th>6</th>
-          <th>7</th>
-          <th>8</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>0</th>
-          <td>0.004</td>
-          <td>3.361e-04</td>
-          <td>1.0</td>
-          <td>0.008</td>
-          <td>0.000e+00</td>
-          <td>1.680e-04</td>
-          <td>0.0</td>
-          <td>1.680e-04</td>
-          <td>8.402e-04</td>
-        </tr>
-        <tr>
-          <th>1</th>
-          <td>0.006</td>
-          <td>2.537e-04</td>
-          <td>1.0</td>
-          <td>0.005</td>
-          <td>1.269e-04</td>
-          <td>0.000e+00</td>
-          <td>0.0</td>
-          <td>0.000e+00</td>
-          <td>5.075e-04</td>
-        </tr>
-        <tr>
-          <th>2</th>
-          <td>0.011</td>
-          <td>4.106e-04</td>
-          <td>1.0</td>
-          <td>0.005</td>
-          <td>2.053e-04</td>
-          <td>0.000e+00</td>
-          <td>0.0</td>
-          <td>0.000e+00</td>
-          <td>2.053e-04</td>
-        </tr>
-        <tr>
-          <th>3</th>
-          <td>0.005</td>
-          <td>4.318e-04</td>
-          <td>1.0</td>
-          <td>0.005</td>
-          <td>1.439e-04</td>
-          <td>2.878e-04</td>
-          <td>0.0</td>
-          <td>1.439e-04</td>
-          <td>1.439e-04</td>
-        </tr>
-        <tr>
-          <th>4</th>
-          <td>0.005</td>
-          <td>5.732e-04</td>
-          <td>1.0</td>
-          <td>0.006</td>
-          <td>1.911e-04</td>
-          <td>1.911e-04</td>
-          <td>0.0</td>
-          <td>1.911e-04</td>
-          <td>1.911e-04</td>
-        </tr>
-      </tbody>
-    </table>
-    </div>
-
-
-
- # 5. Evaluate Algorithms and Models
+5. Evaluate Algorithms and Models
+-------
 
  ## 5.1. Train Test Split
 
@@ -1253,217 +554,6 @@ K-folds cross validation
     GBM: 0.633159 (0.076016)
     RF: 0.618815 (0.077372)
     ET: 0.582753 (0.074896)
-    Epoch 1/10
-    375/375 [==============================] - 1s 4ms/step - loss: 9.0691 - acc: 0.4373
-    Epoch 2/10
-    375/375 [==============================] - 0s 136us/step - loss: 9.0691 - acc: 0.4373
-    Epoch 3/10
-    375/375 [==============================] - 0s 128us/step - loss: 9.0691 - acc: 0.4373
-    Epoch 4/10
-    375/375 [==============================] - 0s 152us/step - loss: 9.0691 - acc: 0.4373
-    Epoch 5/10
-    375/375 [==============================] - 0s 147us/step - loss: 9.0691 - acc: 0.4373
-    Epoch 6/10
-    375/375 [==============================] - 0s 156us/step - loss: 9.0691 - acc: 0.4373
-    Epoch 7/10
-    375/375 [==============================] - 0s 146us/step - loss: 9.0691 - acc: 0.4373
-    Epoch 8/10
-    375/375 [==============================] - 0s 161us/step - loss: 9.0691 - acc: 0.4373
-    Epoch 9/10
-    375/375 [==============================] - 0s 144us/step - loss: 9.0691 - acc: 0.4373
-    Epoch 10/10
-    375/375 [==============================] - 0s 142us/step - loss: 9.0691 - acc: 0.4373
-    42/42 [==============================] - 1s 16ms/step
-    Epoch 1/10
-    375/375 [==============================] - 1s 4ms/step - loss: 6.8871 - acc: 0.5680
-    Epoch 2/10
-    375/375 [==============================] - 0s 109us/step - loss: 6.8871 - acc: 0.5680
-    Epoch 3/10
-    375/375 [==============================] - 0s 113us/step - loss: 6.8871 - acc: 0.5680
-    Epoch 4/10
-    375/375 [==============================] - 0s 126us/step - loss: 6.8871 - acc: 0.5680
-    Epoch 5/10
-    375/375 [==============================] - 0s 115us/step - loss: 6.8871 - acc: 0.5680
-    Epoch 6/10
-    375/375 [==============================] - 0s 119us/step - loss: 6.8871 - acc: 0.5680
-    Epoch 7/10
-    375/375 [==============================] - 0s 109us/step - loss: 6.8871 - acc: 0.5680
-    Epoch 8/10
-    375/375 [==============================] - 0s 112us/step - loss: 6.8871 - acc: 0.5680
-    Epoch 9/10
-    375/375 [==============================] - 0s 109us/step - loss: 6.8871 - acc: 0.5680
-    Epoch 10/10
-    375/375 [==============================] - 0s 113us/step - loss: 6.8871 - acc: 0.5680
-    42/42 [==============================] - 1s 15ms/step
-    Epoch 1/10
-    375/375 [==============================] - 2s 4ms/step - loss: 0.6925 - acc: 0.5733
-    Epoch 2/10
-    375/375 [==============================] - 0s 108us/step - loss: 0.6914 - acc: 0.5787
-    Epoch 3/10
-    375/375 [==============================] - 0s 115us/step - loss: 0.6902 - acc: 0.5787
-    Epoch 4/10
-    375/375 [==============================] - 0s 120us/step - loss: 0.6892 - acc: 0.5787
-    Epoch 5/10
-    375/375 [==============================] - 0s 125us/step - loss: 0.6883 - acc: 0.5787
-    Epoch 6/10
-    375/375 [==============================] - 0s 151us/step - loss: 0.6875 - acc: 0.5787
-    Epoch 7/10
-    375/375 [==============================] - 0s 200us/step - loss: 0.6868 - acc: 0.5787
-    Epoch 8/10
-    375/375 [==============================] - 0s 223us/step - loss: 0.6862 - acc: 0.5787
-    Epoch 9/10
-    375/375 [==============================] - 0s 122us/step - loss: 0.6856 - acc: 0.5787
-    Epoch 10/10
-    375/375 [==============================] - 0s 133us/step - loss: 0.6851 - acc: 0.5787
-    42/42 [==============================] - 1s 12ms/step
-    Epoch 1/10
-    375/375 [==============================] - 1s 4ms/step - loss: 7.0997 - acc: 0.5547
-    Epoch 2/10
-    375/375 [==============================] - 0s 103us/step - loss: 7.0997 - acc: 0.5547
-    Epoch 3/10
-    375/375 [==============================] - 0s 114us/step - loss: 7.0997 - acc: 0.5547
-    Epoch 4/10
-    375/375 [==============================] - 0s 110us/step - loss: 7.0997 - acc: 0.5547
-    Epoch 5/10
-    375/375 [==============================] - 0s 107us/step - loss: 7.0997 - acc: 0.5547
-    Epoch 6/10
-    375/375 [==============================] - 0s 104us/step - loss: 7.0997 - acc: 0.5547
-    Epoch 7/10
-    375/375 [==============================] - 0s 106us/step - loss: 7.0997 - acc: 0.5547
-    Epoch 8/10
-    375/375 [==============================] - 0s 103us/step - loss: 7.0997 - acc: 0.5547
-    Epoch 9/10
-    375/375 [==============================] - 0s 106us/step - loss: 7.0997 - acc: 0.5547
-    Epoch 10/10
-    375/375 [==============================] - 0s 105us/step - loss: 7.0997 - acc: 0.5547
-    42/42 [==============================] - 1s 12ms/step
-    Epoch 1/10
-    375/375 [==============================] - 1s 4ms/step - loss: 4.6803 - acc: 0.4880
-    Epoch 2/10
-    375/375 [==============================] - 0s 112us/step - loss: 1.5742 - acc: 0.4533
-    Epoch 3/10
-    375/375 [==============================] - 0s 104us/step - loss: 1.2508 - acc: 0.4507
-    Epoch 4/10
-    375/375 [==============================] - 0s 109us/step - loss: 1.1772 - acc: 0.4373
-    Epoch 5/10
-    375/375 [==============================] - 0s 106us/step - loss: 1.2157 - acc: 0.4613
-    Epoch 6/10
-    375/375 [==============================] - 0s 112us/step - loss: 0.8980 - acc: 0.4533
-    Epoch 7/10
-    375/375 [==============================] - 0s 105us/step - loss: 1.0351 - acc: 0.5147
-    Epoch 8/10
-    375/375 [==============================] - 0s 101us/step - loss: 0.9598 - acc: 0.4853
-    Epoch 9/10
-    375/375 [==============================] - 0s 101us/step - loss: 0.9366 - acc: 0.5067
-    Epoch 10/10
-    375/375 [==============================] - 0s 105us/step - loss: 0.8666 - acc: 0.5387
-    42/42 [==============================] - 1s 12ms/step
-    Epoch 1/10
-    375/375 [==============================] - 1s 4ms/step - loss: 0.6928 - acc: 0.5520
-    Epoch 2/10
-    375/375 [==============================] - 0s 157us/step - loss: 0.6917 - acc: 0.5733
-    Epoch 3/10
-    375/375 [==============================] - 0s 119us/step - loss: 0.6907 - acc: 0.5733
-    Epoch 4/10
-    375/375 [==============================] - 0s 103us/step - loss: 0.6898 - acc: 0.5733
-    Epoch 5/10
-    375/375 [==============================] - 0s 108us/step - loss: 0.6891 - acc: 0.5733
-    Epoch 6/10
-    375/375 [==============================] - 0s 110us/step - loss: 0.6884 - acc: 0.5733
-    Epoch 7/10
-    375/375 [==============================] - 0s 110us/step - loss: 0.6877 - acc: 0.5733
-    Epoch 8/10
-    375/375 [==============================] - 0s 102us/step - loss: 0.6871 - acc: 0.5733
-    Epoch 9/10
-    375/375 [==============================] - 0s 106us/step - loss: 0.6867 - acc: 0.5733
-    Epoch 10/10
-    375/375 [==============================] - 0s 101us/step - loss: 0.6863 - acc: 0.5733
-    42/42 [==============================] - 1s 13ms/step
-    Epoch 1/10
-    375/375 [==============================] - 1s 4ms/step - loss: 9.1981 - acc: 0.4293
-    Epoch 2/10
-    375/375 [==============================] - 0s 109us/step - loss: 9.1981 - acc: 0.4293
-    Epoch 3/10
-    375/375 [==============================] - 0s 103us/step - loss: 9.1981 - acc: 0.4293
-    Epoch 4/10
-    375/375 [==============================] - 0s 109us/step - loss: 9.1981 - acc: 0.4293
-    Epoch 5/10
-    375/375 [==============================] - 0s 103us/step - loss: 9.1981 - acc: 0.4293
-    Epoch 6/10
-    375/375 [==============================] - 0s 105us/step - loss: 9.1981 - acc: 0.4293
-    Epoch 7/10
-    375/375 [==============================] - 0s 112us/step - loss: 9.1981 - acc: 0.4293
-    Epoch 8/10
-    375/375 [==============================] - 0s 104us/step - loss: 9.1981 - acc: 0.4293
-    Epoch 9/10
-    375/375 [==============================] - 0s 107us/step - loss: 9.1981 - acc: 0.4293
-    Epoch 10/10
-    375/375 [==============================] - 0s 106us/step - loss: 9.1981 - acc: 0.4293
-    42/42 [==============================] - 1s 13ms/step
-    Epoch 1/10
-    376/376 [==============================] - 2s 4ms/step - loss: 9.2165 - acc: 0.4282
-    Epoch 2/10
-    376/376 [==============================] - 0s 110us/step - loss: 9.2165 - acc: 0.4282
-    Epoch 3/10
-    376/376 [==============================] - 0s 107us/step - loss: 9.2165 - acc: 0.4282
-    Epoch 4/10
-    376/376 [==============================] - 0s 113us/step - loss: 9.2165 - acc: 0.4282
-    Epoch 5/10
-    376/376 [==============================] - 0s 111us/step - loss: 9.2165 - acc: 0.4282
-    Epoch 6/10
-    376/376 [==============================] - 0s 113us/step - loss: 9.2165 - acc: 0.4282
-    Epoch 7/10
-    376/376 [==============================] - 0s 109us/step - loss: 9.2165 - acc: 0.4282
-    Epoch 8/10
-    376/376 [==============================] - 0s 108us/step - loss: 9.2165 - acc: 0.4282
-    Epoch 9/10
-    376/376 [==============================] - 0s 106us/step - loss: 9.2165 - acc: 0.4282
-    Epoch 10/10
-    376/376 [==============================] - 0s 108us/step - loss: 9.2165 - acc: 0.4282
-    41/41 [==============================] - 1s 15ms/step
-    Epoch 1/10
-    376/376 [==============================] - 2s 4ms/step - loss: 6.7416 - acc: 0.5771
-    Epoch 2/10
-    376/376 [==============================] - 0s 109us/step - loss: 6.7416 - acc: 0.5771
-    Epoch 3/10
-    376/376 [==============================] - 0s 112us/step - loss: 6.7416 - acc: 0.5771
-    Epoch 4/10
-    376/376 [==============================] - 0s 110us/step - loss: 6.7416 - acc: 0.5771
-    Epoch 5/10
-    376/376 [==============================] - 0s 107us/step - loss: 6.7416 - acc: 0.5771
-    Epoch 6/10
-    376/376 [==============================] - 0s 108us/step - loss: 6.7416 - acc: 0.5771
-    Epoch 7/10
-    376/376 [==============================] - 0s 107us/step - loss: 6.7416 - acc: 0.5771
-    Epoch 8/10
-    376/376 [==============================] - 0s 107us/step - loss: 6.7416 - acc: 0.5771
-    Epoch 9/10
-    376/376 [==============================] - 0s 110us/step - loss: 6.7416 - acc: 0.5771
-    Epoch 10/10
-    376/376 [==============================] - 0s 106us/step - loss: 6.7416 - acc: 0.5771
-    41/41 [==============================] - 1s 14ms/step
-    Epoch 1/10
-    376/376 [==============================] - 2s 4ms/step - loss: 5.4531 - acc: 0.5346
-    Epoch 2/10
-    376/376 [==============================] - 0s 113us/step - loss: 3.4579 - acc: 0.5665
-    Epoch 3/10
-    376/376 [==============================] - 0s 108us/step - loss: 3.3328 - acc: 0.5452
-    Epoch 4/10
-    376/376 [==============================] - 0s 106us/step - loss: 2.5059 - acc: 0.5000
-    Epoch 5/10
-    376/376 [==============================] - 0s 108us/step - loss: 2.8887 - acc: 0.5771
-    Epoch 6/10
-    376/376 [==============================] - 0s 110us/step - loss: 2.0510 - acc: 0.5532
-    Epoch 7/10
-    376/376 [==============================] - 0s 107us/step - loss: 1.8155 - acc: 0.5904
-    Epoch 8/10
-    376/376 [==============================] - 0s 111us/step - loss: 1.4380 - acc: 0.6144
-    Epoch 9/10
-    376/376 [==============================] - 0s 110us/step - loss: 1.5659 - acc: 0.6250
-    Epoch 10/10
-    376/376 [==============================] - 0s 110us/step - loss: 1.5057 - acc: 0.6117
-    41/41 [==============================] - 1s 15ms/step
-    DNN: 0.522648 (0.095039)
 
 
 Algorithm comparison
@@ -1485,7 +575,8 @@ Algorithm comparison
 .. image:: output_60_0.png
 
 
- # 6. Model Tuning and Grid Search
+6. Model Tuning and Grid Search
+-------
 
 Algorithm Tuning: Although some of the models show the most promising
 options. the grid search for Gradient Bossting Classifier is shown
@@ -2037,7 +1128,8 @@ below.
     #1 0.625726 (0.069088) with: {'neurons': 15}
 
 
- # 7. Finalise the Model
+7. Finalise the Model
+-------
 
 Looking at the details above GBM might be worthy of further study, but
 for now SVM shows a lot of promise as a low complexity and stable model
