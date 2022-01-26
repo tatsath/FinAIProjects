@@ -1,4 +1,4 @@
-.. _AssetPred:
+.. _AssetPrediction:
 
 ======================================
 Asset Price Prediction

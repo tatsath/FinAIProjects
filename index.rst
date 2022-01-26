@@ -1,19 +1,17 @@
-Plug and Play templates for Financial AI/ML applications 
+FinAILab-templates
 ===========================================================
 
-Key highlights of Fin AI Projects
---------------------------------------
-- Curated projects across exhaustive set of Financial AI/ML applications and AI/ML types 
-- Plug and play github repositories - just plug in the data and build models.
-- For more details refer to the book `Blueprints of Machine Learning and Data Science in Finance <https://www.amazon.com/Machine-Learning-Science-Blueprints-Finance/dp/1492073059>`_.
+Plug and Play templates for Financial AI/ML applications
 
-
-Templates by Machine Learning Types
+Key highlights
 --------------------------------------
+- Exhaustive set of across Financial AI/ML applications and AI/ML types
+- Use the entire template or select sections, just plug in the data and build models.
+- For more details refer to our book `Blueprints of Machine Learning and Data Science in Finance <https://www.amazon.com/Machine-Learning-Science-Blueprints-Finance/dp/1492073059>`_.
 
 .. toctree::
    :maxdepth: 1
-   :caption: By AI/ML Type
+   :caption: Templates by AI/ML Type
 
    AIType/supervised_reg
    AIType/supervised_class
@@ -21,18 +19,14 @@ Templates by Machine Learning Types
    AIType/unsupervised_clu
    AIType/NLP
 
-
-Templates by Financial Application
---------------------------------------
-
 .. toctree::
   :maxdepth: 1
-  :caption: By Application
+  :caption: Templates by Application
 
   Appl/TrdStg
   Appl/PortMgmt
   Appl/DerivPric
-  Appl/AssetPred
+  Appl/AssetPrediction
   Appl/Fraud
 
 Contributing
