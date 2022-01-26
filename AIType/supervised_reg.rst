@@ -96,7 +96,8 @@ deep Learning methods. - Following Models are implemented
 2. Getting Started- Loading the data and python packages
 ------------------------------------------------
 
- ## 2.1. Loading the python packages
+2.1. Loading the python packages
+^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: ipython3
 
@@ -146,7 +147,8 @@ deep Learning methods. - Following Models are implemented
     Using TensorFlow backend.
 
 
- ## 2.2. Loading the Data
+2.2. Loading the Data
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: ipython3
 
@@ -208,21 +210,13 @@ value of the lagged variable will be used for prediction.
 3. Exploratory Data Analysis
 ------------------------------------------------
 
- ## 3.1. Descriptive Statistics
+3.1. Descriptive Statistics
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: ipython3
 
     # shape
     dataset.shape
-
-
-
-
-.. parsed-literal::
-
-    (2252, 13)
-
-
 
 .. code:: ipython3
 
@@ -236,28 +230,6 @@ value of the lagged variable will be used for prediction.
     pd.set_option('display.max_rows', 500)
     dataset.dtypes
 
-
-
-
-.. parsed-literal::
-
-    MSFT_pred         float64
-    MSFT_pred(t-1)    float64
-    GOOGL(t-1)        float64
-    IBM(t-1)          float64
-    DEXJPUS(t-1)      float64
-    DEXUSUK(t-1)      float64
-    SP500(t-1)        float64
-    DJIA(t-1)         float64
-    VIXCLS(t-1)       float64
-    1M(t-1)           float64
-    3M(t-1)           float64
-    6M(t-1)           float64
-    1Y(t-1)           float64
-    dtype: object
-
-
-
 .. code:: ipython3
 
     # describe data
@@ -267,7 +239,8 @@ value of the lagged variable will be used for prediction.
 
 
 
- ## 3.2. Data Visualization
+3.2. Data Visualization
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: ipython3
 
@@ -311,15 +284,6 @@ value of the lagged variable will be used for prediction.
     sns.heatmap(correlation, vmax=1, square=True,annot=True,cmap='cubehelix')
 
 
-
-
-.. parsed-literal::
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x21b92b917b8>
-
-
-
-
 .. image:: output_25_1.png
 
 
@@ -332,17 +296,11 @@ value of the lagged variable will be used for prediction.
     pyplot.show()
 
 
-
-.. parsed-literal::
-
-    <Figure size 1080x1080 with 0 Axes>
-
-
-
 .. image:: output_26_1.png
 
 
- ## 3.3. Time Series Analysis
+3.3. Time Series Analysis
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Time series broken down into different time series comonent
 
@@ -363,7 +321,10 @@ Time series broken down into different time series comonent
 4. Data Preparation
 ------------------------------------------------
 
- ## 4.1. Data Cleaning Check for the NAs in the rows, either drop them
+4.1. Data Cleaning
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Check for the NAs in the rows, either drop them
 or fill them with the mean of the column
 
 .. code:: ipython3
@@ -390,7 +351,10 @@ values.
     #Filling the NAs with the mean of the column.
     #dataset['col'] = dataset['col'].fillna(dataset['col'].mean())
 
- ## 4.3. Feature Selection Statistical tests can be used to select those
+4.3. Feature Selection
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Statistical tests can be used to select those
 features that have the strongest relationship with the output
 variable.The scikit-learn library provides the SelectKBest class that
 can be used with a suite of different statistical tests to select a
@@ -460,9 +424,10 @@ As it can be seen from the result above that t-1 is an important feature
 
 
 
- ## 4.4. Data Transformation
+4.4. Data Transformation
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
- ### 4.4.1. Rescale Data When your data is comprised of attributes with
+4.4.1. Rescale Data When your data is comprised of attributes with
 varying scales, many machine learning algorithms can benefit from
 rescaling the attributes to all have the same scale. Often this is
 referred to as normalization and attributes are often rescaled into the
@@ -477,7 +442,7 @@ range between 0 and 1.
     rescaledX.head(5)
 
 
- ### 4.4.2. Standardize Data Standardization is a useful technique to
+4.4.2. Standardize Data Standardization is a useful technique to
 transform attributes with a Gaussian distribution and differing means
 and standard deviations to a standard Gaussian distribution with a mean
 of 0 and a standard deviation of 1.
@@ -490,7 +455,7 @@ of 0 and a standard deviation of 1.
     # summarize transformed data
     StandardisedX.head(5)
 
- ### 4.4.1. Normalize Data Normalizing in scikit-learn refers to
+4.4.3. Normalize Data Normalizing in scikit-learn refers to
 rescaling each observation (row) to have a length of 1 (called a unit
 norm or a vector with the length of 1 in linear algebra).
 
@@ -506,7 +471,8 @@ norm or a vector with the length of 1 in linear algebra).
 5. Evaluate Algorithms and Models
 ------------------------------------------------
 
- ## 5.1. Train Test Split
+5.1. Train Test Split
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: ipython3
 
@@ -525,7 +491,8 @@ norm or a vector with the length of 1 in linear algebra).
     X_train, X_validation = X[0:train_size], X[train_size:len(X)]
     Y_train, Y_validation = Y[0:train_size], Y[train_size:len(X)]
 
- ## 5.2. Test Options and Evaluation Metrics
+5.2. Test Options and Evaluation Metrics
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: ipython3
 
@@ -535,7 +502,8 @@ norm or a vector with the length of 1 in linear algebra).
     #scoring ='neg_mean_absolute_error'
     #scoring = 'r2'
 
- ## 5.3. Compare Models and Algorithms
+5.3. Compare Models and Algorithms
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  ### 5.3.1. Common Models
 
@@ -645,7 +613,8 @@ Algorithm comparison
 
 The chart shows MSE. Lower the MSE, better is the model performance.
 
- ## 5.4. Time Series based Models- ARIMA and LSTM
+5.4. Time Series based Models- ARIMA and LSTM
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  ### 5.4.1 Time Series Model - ARIMA Model
 
@@ -806,7 +775,8 @@ for all the Machine Learning and time series models mentioned in the
 book.
 
 
- ### 6.1. Common Regression, Ensemble and DeepNNRegressor Grid Search
+6.1. Common Regression, Ensemble and DeepNNRegressor Grid Search
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: ipython3
 
@@ -1445,7 +1415,8 @@ Let us select one of the model to finalize the data. Looking at the
 results for the Random Forest Model. Looking at the results for the
 RandomForestRegressor model
 
- ## 7.1. Results on the Test Dataset
+7.1. Results on the Test Dataset
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: ipython3
 
@@ -1482,117 +1453,9 @@ RandomForestRegressor model
     print(r2_score(Y_validation, predictions))
 
 
-.. parsed-literal::
-
-    0.0010988744547435773
-    0.770991173511421
-
-
-.. code:: ipython3
-
-    predictions
-
-
-
-
-.. parsed-literal::
-
-    array([-0.0167129 , -0.00438854, -0.01720166, -0.01160175,  0.02395749,
-            0.04436422,  0.06058143,  0.05072532,  0.03095209,  0.01356325,
-            0.0099564 , -0.00842381,  0.01126788,  0.02380102,  0.03248117,
-            0.03365514,  0.04211669,  0.03820695,  0.04439574,  0.0403192 ,
-            0.05855186,  0.0601968 ,  0.05554876,  0.05474416,  0.04013627,
-            0.03683666,  0.02488511,  0.03476343,  0.03237849,  0.03032998,
-            0.03901389,  0.03749494,  0.03193098,  0.03607884, -0.03805946,
-           -0.05936762, -0.03391639, -0.04593652, -0.01443007, -0.02085788,
-           -0.03487344, -0.03638463, -0.03563088, -0.05473057, -0.11883956,
-           -0.04365186, -0.05839629, -0.08177799, -0.10658929, -0.0723141 ,
-           -0.06093034, -0.03757991, -0.00596715,  0.04780189,  0.02360587,
-           -0.01332828, -0.00785864, -0.03248047, -0.02820984,  0.00942003,
-           -0.01978709, -0.0491296 , -0.01526217,  0.02559211, -0.01487458,
-            0.01762112,  0.06623189,  0.05028198,  0.03630367,  0.05250258,
-            0.02850159,  0.02790157, -0.02360305, -0.01868513,  0.00697606,
-           -0.00318529, -0.01077579, -0.02886531, -0.02580073, -0.03335841,
-           -0.02376638, -0.0748171 , -0.02263548, -0.04121525, -0.06405095,
-           -0.07891746, -0.08067931, -0.11992439, -0.08315298, -0.06357971,
-           -0.03311136,  0.00101853, -0.02848928, -0.05496003, -0.04974282,
-           -0.00102415,  0.03035821,  0.02785181,  0.02478636,  0.04806699,
-            0.04101064,  0.01829691,  0.05229777,  0.02267048,  0.01806651,
-            0.0481161 ,  0.03338871,  0.03011497,  0.0037035 ,  0.01198423,
-            0.03953344,  0.01174706,  0.03181125,  0.02311203, -0.00352524,
-            0.04403766,  0.04774884,  0.06654194,  0.0939478 ,  0.06582213,
-            0.06795722,  0.06044436,  0.0311404 ,  0.03947465,  0.06407764,
-            0.06366104,  0.08626386,  0.05829807,  0.09237167,  0.06248199,
-            0.0558632 ,  0.05059528,  0.05819086,  0.04331141,  0.04031494,
-            0.0513537 ,  0.06387019,  0.0623841 ,  0.06447874,  0.05932441,
-            0.06000217,  0.06130364,  0.06089483,  0.05959214,  0.05165794,
-            0.05256753,  0.04758325,  0.03122795,  0.04806537,  0.06412759,
-            0.0575488 ,  0.07847543,  0.09702115,  0.09410662,  0.09518771,
-            0.07163633,  0.06018362,  0.07542479,  0.0671117 ,  0.04368917,
-            0.04781752,  0.04979013,  0.05813182,  0.02939386,  0.03673248,
-            0.04364695,  0.06457493,  0.04641177,  0.03707081,  0.03067347,
-            0.02349352,  0.01301813, -0.01934682, -0.02268155, -0.02533962,
-           -0.03180231, -0.03166371, -0.04222748, -0.03458348, -0.01020102,
-            0.02253789,  0.04601804,  0.04959232,  0.04032586,  0.05536184,
-            0.05111265,  0.04350028,  0.03341034,  0.04390949,  0.06987675,
-            0.0644903 ,  0.07425782,  0.05582975,  0.05744612,  0.07294485,
-            0.0579009 ,  0.08598981,  0.10871372,  0.1015554 ,  0.07215359,
-            0.05582903,  0.03559519,  0.03959765,  0.03844638,  0.05848534,
-            0.0477716 ,  0.03641636,  0.0372103 ,  0.01364644,  0.01196397,
-            0.01210995,  0.01321671,  0.01675325,  0.04413029,  0.04326638,
-            0.04270718,  0.00684118,  0.01085247, -0.00255595, -0.02286433,
-           -0.0147629 , -0.00803585,  0.01157987, -0.00253967, -0.01876178,
-           -0.00701802, -0.01346794, -0.01603001,  0.00978598,  0.01435514,
-           -0.00074282,  0.00544204, -0.0142785 , -0.04998315, -0.05158218,
-           -0.03088809, -0.02809887,  0.01282912,  0.01988682,  0.03721984,
-            0.03890533,  0.03490906, -0.00384669, -0.00531803,  0.02578539,
-           -0.00358208,  0.03529414,  0.03129913,  0.0088258 , -0.00174584,
-            0.04051517,  0.0025114 ,  0.00020497,  0.03579171,  0.03472466,
-            0.0328713 ,  0.00938281,  0.00113179, -0.00632527, -0.0106241 ,
-           -0.01208661, -0.0109079 , -0.01034006, -0.01091301,  0.00576056,
-            0.02670394,  0.01198276,  0.00566075,  0.03272409,  0.02710886,
-            0.00203157, -0.01606232, -0.00986223, -0.01519102, -0.00571757,
-            0.00651934,  0.00859579,  0.04311555,  0.02940964,  0.05489656,
-            0.04774512,  0.03694486,  0.04302572,  0.05375753,  0.03606795,
-            0.04383782,  0.04516068,  0.04173705,  0.04564357,  0.08100234,
-            0.09733963,  0.079205  ,  0.10191097,  0.09349076,  0.07248063,
-            0.07601309,  0.06137686,  0.06087738,  0.04779072,  0.04437849,
-            0.04292305,  0.04440576,  0.04354415,  0.05775496,  0.0422338 ,
-            0.03701114,  0.04643909,  0.04832221,  0.02886001,  0.02418378,
-            0.03465933,  0.04660973,  0.04862381,  0.04718371,  0.04777968,
-            0.04225872,  0.02693193,  0.04210093,  0.08859046,  0.0577928 ,
-            0.05424162,  0.04425763,  0.04914569,  0.05827294,  0.07302622,
-            0.05615673,  0.05454844,  0.0636011 ,  0.07458665,  0.07352579,
-            0.06051135,  0.05680841,  0.04436114,  0.0276868 ,  0.04065472,
-            0.07529548,  0.07334085,  0.07420636,  0.12768835,  0.12557607,
-            0.15197126,  0.13704117,  0.14095683,  0.13725351,  0.12839587,
-            0.1271493 ,  0.13057559,  0.11702096,  0.11071868,  0.08927316,
-            0.07623848,  0.02815564,  0.045036  , -0.03619496, -0.02910809,
-           -0.01998923, -0.01754365, -0.07310221, -0.08735329, -0.12336669,
-           -0.12054098, -0.12389039, -0.10056516, -0.12019732, -0.1006773 ,
-           -0.12272242, -0.09908782, -0.10078916, -0.10281921, -0.11932   ,
-           -0.12394929, -0.07523005, -0.05682079, -0.01546912, -0.07255817,
-           -0.07298098, -0.07628215, -0.06934202,  0.02163013,  0.04409767,
-            0.02553263,  0.04722916,  0.17142788,  0.07575054,  0.18675236,
-            0.18821385,  0.18214007,  0.1821226 ,  0.18667874,  0.11411365,
-            0.16722662,  0.09534586,  0.10113332,  0.08780007,  0.10610973,
-            0.10871661,  0.10965673,  0.16483241,  0.08664926,  0.10180859,
-            0.10586637,  0.12560925,  0.09032735,  0.04148171,  0.03237559,
-            0.03337614,  0.03844717,  0.03321158,  0.09264446,  0.04440193,
-            0.07560031,  0.02262409,  0.03612574,  0.07382977,  0.03103831,
-            0.02792928,  0.06119375,  0.02706105,  0.00241605,  0.02394367,
-            0.02341902,  0.02406397,  0.01848726,  0.03604506,  0.04319433,
-            0.05985671,  0.04314911,  0.06628985,  0.03415608,  0.09323744,
-            0.09162318,  0.06616782,  0.08581251,  0.0680896 ,  0.07405359,
-            0.09212332,  0.0918069 ,  0.09039409,  0.11782611,  0.09661128,
-            0.10242397,  0.10471816,  0.07383994,  0.08950468,  0.08463576,
-            0.08625374,  0.04592718,  0.04495769,  0.07856623,  0.04030275,
-            0.04163912])
-
-
-
- ## 7.2. Variable Intuition/Feature Importance Let us look into the
-Feature Importance of the Random Forest model
+7.2. Variable Intuition/Feature Importance
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Let us look into the Feature Importance of the Random Forest model
 
 .. code:: ipython3
 
