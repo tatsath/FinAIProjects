@@ -3,6 +3,11 @@ FinAILab-templates
 
 Plug and Play templates for Financial AI/ML applications
 
+.. note::
+    Just do "!git clone https://github.com/tatsath/fin-ml.git" in your FinAILab's platform to get all the templates.
+
+
+
 Key highlights
 --------------------------------------
 - Exhaustive set of across Financial AI/ML applications and AI/ML types
