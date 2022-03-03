@@ -35,14 +35,10 @@ Key highlights
   Appl/Fraud
 
 .. toctree::
-  :maxdepth: 1
-  :caption: Addtional AI/ML pkg_resources
+   :maxdepth: 2
+   :caption: Contents:
 
-Readme File
-===========
-
-.. mdinclude:: README.md
-
+   source/README.md
 
 
 
