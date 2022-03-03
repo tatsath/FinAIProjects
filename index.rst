@@ -29,6 +29,18 @@ Key highlights
   Appl/AssetPrediction
   Appl/Fraud
 
+.. toctree::
+  :maxdepth: 1
+  :caption: Addtional AI/ML pkg_resources
+
+Readme File
+===========
+
+.. mdinclude:: README.md
+
+
+
+
 Contributing
 ------------
 
