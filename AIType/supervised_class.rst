@@ -1,89 +1,22 @@
 .. _supervised_class:
 
-Supervised - Regression
+Supervised - Classification
 ===============
 
-Template for regression and time series based predictive modelling
 
-How do you work through a predictive modeling- Classification or
-Regression based Machine learning problem end-to-end? In this jupyter
-note you will work through a case study classication predictive modeling
-problem in Python including each step of the applied machine learning
-process. However, this notebook is applicable for Regression based case
-study as well. The Models, Grid Search and Evaluation
+This document contains the details of end to end code for each and every step in the building a supervised regression or a time series model using any of the following algorithms.
+- Logistic Regression
+- Linear Discriminant Analysis
+- K Nearest Neighbors
+- Decision Tree (CART)
+- Support Vector Machine
+- Ada Boost
+- Gradient Boosting Method
+- Random Forest
+- Extra Trees
+- Neural Network - Shallow
+- Deep Neural Network
 
-Content
--------
-
--  `1. Introduction <#0>`__
--  `2. Getting Started - Load Libraries and Dataset <#1>`__
-
-   -  `2.1. Load Libraries <#1.1>`__
-   -  `2.2. Load Dataset <#1.2>`__
-
--  `3. Exploratory Data Analysis <#2>`__
-
-   -  `3.1 Descriptive Statistics <#2.1>`__
-   -  `3.2. Data Visualisation <#2.2>`__
-
--  `4. Data Preparation <#3>`__
-
-   -  `4.1 Data Cleaning <#3.1>`__
-   -  `4.2.Handling Categorical Data <#3.2>`__
-   -  `4.3.Feature Selection <#3.3>`__
-   -  `4.3.Data Transformation <#3.4>`__
-
-      -  `4.3.1 Rescaling <#3.4.1>`__
-      -  `4.3.2 Standardization <#3.4.2>`__
-      -  `4.3.3 Normalization <#3.4.3>`__
-
--  `5.Evaluate Algorithms and Models <#4>`__
-
-   -  `5.1. Train/Test Split <#4.1>`__
-   -  `5.2. Test Options and Evaluation Metrics <#4.2>`__
-   -  `5.3. Compare Models and Algorithms <#4.3>`__
-
-      -  `5.3.1 Common Classification Models <#4.3.1>`__
-      -  `5.3.2 Ensemble Models <#4.3.2>`__
-      -  `5.3.3 Deep Learning Models <#4.3.3>`__
-
--  `6. Model Tuning and Grid Search <#5>`__
--  `7. Finalize the Model <#6>`__
-
-   -  `7.1. Results on test dataset <#6.1>`__
-   -  `7.1. Variable Intuition/Feature Selection <#6.2>`__
-   -  `7.3. Save model for later use <#6.3>`__
-
-1. Introduction
--------
-
-Our goal in this jupyter notebook is to under the following - How to
-work through a predictive modeling problem end-to-end. This notebook is
-applicable both for regression and classification problems. - How to use
-data transforms to improve model performance. - How to use algorithm
-tuning to improve model performance. - How to use ensemble methods and
-tuning of ensemble methods to improve model performance. - How to use
-deep Learning methods.
-
-The data is a subset of the German Default data
-(https://archive.ics.uci.edu/ml/datasets/statlog+(german+credit+data)
-with the following attributes. Age, Sex, Job, Housing, SavingAccounts,
-CheckingAccount, CreditAmount, Duration, Purpose - Following models are
-implemented and checked:
-
-::
-
-   * Logistic Regression
-   * Linear Discriminant Analysis
-   * K Nearest Neighbors
-   * Decision Tree (CART)
-   * Support Vector Machine
-   * Ada Boost
-   * Gradient Boosting Method
-   * Random Forest
-   * Extra Trees
-   * Neural Network - Shallow
-   * Deep Neural Network
 
 2. Getting Started- Loading the data and python packages
 -------
